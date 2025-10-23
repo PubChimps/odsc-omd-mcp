@@ -5,19 +5,19 @@ Hello Open Data Science Conference! Thank you for joining our training session! 
 *Note - This training was prepared using a MacBook*
 
 ## Contents
-1. Prerequisites
-2. OpenMetadata
-3. Adding the OpenMetadata MCP Server to goose
-4. Prompt party! 🎉
-5. goose Recipes
-6. Wrapping up and feedback
+1. [Prerequisites](#prerequisites)
+2. [OpenMetadata](#openmetadata)
+3. [Prompt party!](#party) 🎉
+4. [goose Recipes](#goose)
+5. [Wrapping up and feedback](#end)
 
-## Prerequisites
+## Prerequisites <a name="prerequisites"></a>
 Before getting started, please make sure you have the following two services on your laptop:
 1. [Docker Desktop](https://www.docker.com/products/docker-desktop/) - there are open-source alternatives to Docker, like Podman, that are great, please do not use them for this workshop!
 2. [goose Desktop](https://block.github.io/goose/docs/quickstart/) - Desktop, not goose CLI
 
-## OpenMetadata
+## OpenMetadata <a name="openmetadata"></a>
+### Installing OpenMetadata
 With the prerequisites installed, we will move on to installing OpenMetadata. OpenMetadata is an open-source metadata platform for data discovery, observability and governance! If you have any questions about OpenMetadata, please ask! We will be installing OpenMetadata along with its supporting components:
 
  * Airflow - Which orchestrates ingestion jobs that bring new metadata into OpenMetadata, keep it up to data as data systems change
@@ -71,7 +71,7 @@ Please create your OpenMetadata Extension with the following options:
  * Select **+Add**
 * Select **Save Changes**
  
-## Prompt party! 🎉
+## Prompt party! 🎉 <a name="party"></a>
 Now we'll recreate one of the usecases we just saw from the community!
 
 In our [sample data schema](http://localhost:8585/databaseSchema/postgres.postgres.public), you will see 7 tables. We will add some classifications to this schema and have an AI agent push those changes to every table.
@@ -98,9 +98,9 @@ In our [sample data schema](http://localhost:8585/databaseSchema/postgres.postgr
     ```
   * Back in OpenMetadata
     * [Tables](http://localhost:8585/table/postgres.postgres.public.actor) should now have the same Certification!   
-## goose Recipes
+## goose Recipes <a name="goose"></a>
 
-## Wrapping up and feedback
+## Wrapping up and feedback <a name="end"></a>
 To shutdown your OpenMetadata services, run the following command:
 
 ```
