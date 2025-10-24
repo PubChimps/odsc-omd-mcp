@@ -13,8 +13,8 @@ Hello Open Data Science Conference! Thank you for joining our training session! 
 
 ## Prerequisites <a name="prerequisites"></a>
 Before getting started, please make sure you have the following two services on your laptop:
-1. [Docker Desktop](https://www.docker.com/products/docker-desktop/) - there are open-source alternatives to Docker, like Podman, that are great, please do not use them for this workshop!
-2. [goose Desktop](https://block.github.io/goose/docs/quickstart/) - Desktop, not goose CLI
+1. [Docker Desktop 4.49.0](https://www.docker.com/products/docker-desktop/) - there are open-source alternatives to Docker, like Podman, that are great, please do not use them for this workshop!
+2. [goose Desktop 1.12.0](https://block.github.io/goose/docs/quickstart/) - Desktop, not goose CLI
 
 ## OpenMetadata <a name="openmetadata"></a>
 ### Installing OpenMetadata
@@ -38,6 +38,8 @@ To start OpenMetadata, run:
 docker compose -f docker-compose-postgres.yml up --detach
 ```
 
+**picture of OpenMetadata login page**
+
 ### Adding postgreSQL to OpenMetadata
 Adding a connector in OpenMetadata is easy, we've already loaded some sample data into the postgreSQL database OpenMetadata is using to managed asset states, so we will use that, but you can just as easily connect to cloud data services like Snowflake, RedShift, BigQuery, and Databricks.
 
@@ -54,9 +56,11 @@ Adding a connector in OpenMetadata is easy, we've already loaded some sample dat
   * Host and Port: `postgresql:5432`
   * Database: openmetadata_db
   * Enable **Ingest All Databases**
-  * Select **Next**    
+  * Select **Next**
+ 
+ ** picture of connector
 
-## Adding the OpenMetadata MCP Server to goose
+## Adding the OpenMetadata MCP Server to goose <a name="setup"></a>
 With OpenMetadata up and running, we can add it's MCP server as a goose extension! Open goose, select Extensions, then **+Add custom extension**
 
 Please create your OpenMetadata Extension with the following options:
@@ -70,7 +74,9 @@ Please create your OpenMetadata Extension with the following options:
  * Value: `Bearer eyJraWQiOiJHYjM4OWEtOWY3Ni1nZGpzLWE5MmotMDI0MmJrOTQzNTYiLCJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlzQm90IjpmYWxzZSwiaXNzIjoib3Blbi1tZXRhZGF0YS5vcmciLCJpYXQiOjE2NjM5Mzg0NjIsImVtYWlsIjoiYWRtaW5Ab3Blbm1ldGFkYXRhLm9yZyJ9.tS8um_5DKu7HgzGBzS1VTA5uUjKWOCU0B_j08WXBiEC0mr0zNREkqVfwFDD-d24HlNEbrqioLsBuFRiwIWKc1m_ZlVQbG7P36RUxhuv2vbSp80FKyNM-Tj93FDzq91jsyNmsQhyNv_fNr3TXfzzSPjHt8Go0FMMP66weoKMgW2PbXlhVKwEuXUHyakLLzewm9UMeQaEiRzhiTMU3UkLXcKbYEJJvfNFcLwSl9W8JCO_l0Yj3ud-qt_nQYEZwqW6u5nfdQllN133iikV4fM5QZsMCnm8Rq1mvLR0y9bmJiD7fwM1tmJ791TUWqmKaTnP49U493VanKpUAfzIiOiIbhg`
  * Select **+Add**
 * Select **Save Changes**
- 
+
+**picture of extension** 
+
 ## Prompt party! 🎉 <a name="party"></a>
 Now we'll recreate one of the usecases we just saw from the community!
 
@@ -117,3 +123,6 @@ docker compose down
 ```
 
 Or, you can add additional metadata connectors to your OpenMetadata instance! Popular connectors include Snowflake, BigQuery, Databricks, and Tableau!
+
+## Troubleshooting
+Can't build your own OpenMetadata? Create an account in our Sandbox, [generate a personal access token](https://docs.open-metadata.org/latest/how-to-guides/mcp#adding-a-personal-access-token-to-your-mcp-client), and connect to [goose](#setup) using https://sandbox.open-metadata.org/ instead of http://localhost:8585/
