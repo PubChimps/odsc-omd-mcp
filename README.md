@@ -38,7 +38,9 @@ To start OpenMetadata, run:
 docker compose -f docker-compose-postgres.yml up --detach
 ```
 
-**picture of OpenMetadata login page**
+| ![openmetadata-login.png](./images/openmetadata-login.png) |
+|:--:|
+| Welcome to OpenMetadata! |
 
 ### Adding postgreSQL to OpenMetadata
 Adding a connector in OpenMetadata is easy, we've already loaded some sample data into the postgreSQL database OpenMetadata is using to managed asset states, so we will use that, but you can just as easily connect to cloud data services like Snowflake, RedShift, BigQuery, and Databricks.
@@ -58,7 +60,9 @@ Adding a connector in OpenMetadata is easy, we've already loaded some sample dat
   * Enable **Ingest All Databases**
   * Select **Next**
  
- ** picture of connector
+| ![add-postgres.png](./images/add-postgres.png) |
+|:--:|
+| Adding a postgres connector to OpenMetadata |
 
 ## Adding the OpenMetadata MCP Server to goose <a name="setup"></a>
 With OpenMetadata up and running, we can add it's MCP server as a goose extension! Open goose, select Extensions, then **+Add custom extension**
@@ -71,11 +75,16 @@ Please create your OpenMetadata Extension with the following options:
 * Timeout: `300`
 * Environment Variables
  * Variable name: `AUTH_HEADER`
- * Value: `Bearer eyJraWQiOiJHYjM4OWEtOWY3Ni1nZGpzLWE5MmotMDI0MmJrOTQzNTYiLCJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlzQm90IjpmYWxzZSwiaXNzIjoib3Blbi1tZXRhZGF0YS5vcmciLCJpYXQiOjE2NjM5Mzg0NjIsImVtYWlsIjoiYWRtaW5Ab3Blbm1ldGFkYXRhLm9yZyJ9.tS8um_5DKu7HgzGBzS1VTA5uUjKWOCU0B_j08WXBiEC0mr0zNREkqVfwFDD-d24HlNEbrqioLsBuFRiwIWKc1m_ZlVQbG7P36RUxhuv2vbSp80FKyNM-Tj93FDzq91jsyNmsQhyNv_fNr3TXfzzSPjHt8Go0FMMP66weoKMgW2PbXlhVKwEuXUHyakLLzewm9UMeQaEiRzhiTMU3UkLXcKbYEJJvfNFcLwSl9W8JCO_l0Yj3ud-qt_nQYEZwqW6u5nfdQllN133iikV4fM5QZsMCnm8Rq1mvLR0y9bmJiD7fwM1tmJ791TUWqmKaTnP49U493VanKpUAfzIiOiIbhg`
+ * Value:
+   ```
+   Bearer eyJraWQiOiJHYjM4OWEtOWY3Ni1nZGpzLWE5MmotMDI0MmJrOTQzNTYiLCJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlzQm90IjpmYWxzZSwiaXNzIjoib3Blbi1tZXRhZGF0YS5vcmciLCJpYXQiOjE2NjM5Mzg0NjIsImVtYWlsIjoiYWRtaW5Ab3Blbm1ldGFkYXRhLm9yZyJ9.tS8um_5DKu7HgzGBzS1VTA5uUjKWOCU0B_j08WXBiEC0mr0zNREkqVfwFDD-d24HlNEbrqioLsBuFRiwIWKc1m_ZlVQbG7P36RUxhuv2vbSp80FKyNM-Tj93FDzq91jsyNmsQhyNv_fNr3TXfzzSPjHt8Go0FMMP66weoKMgW2PbXlhVKwEuXUHyakLLzewm9UMeQaEiRzhiTMU3UkLXcKbYEJJvfNFcLwSl9W8JCO_l0Yj3ud-qt_nQYEZwqW6u5nfdQllN133iikV4fM5QZsMCnm8Rq1mvLR0y9bmJiD7fwM1tmJ791TUWqmKaTnP49U493VanKpUAfzIiOiIbhg
+   ```
  * Select **+Add**
 * Select **Save Changes**
 
-**picture of extension** 
+| ![openmetadata-extension.png](./images/openmetadata-extension.png) |
+|:--:|
+| OpenMetadata MCP Server in goose |
 
 ## Prompt party! 🎉 <a name="party"></a>
 Now we'll recreate one of the usecases we just saw from the community!
