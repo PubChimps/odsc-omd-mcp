@@ -119,10 +119,10 @@ We can make this even easier via goose Recipes. Recipes are files that contain a
 * In OpenMetadata
   * Go back to the same [public databaseSchema](http://localhost:8585/databaseSchema/postgres.postgres.public)
   * Change the tier and/or add *admin* as the asset owner, copy the fully qualified name (fqn) or this schema `postgres.postgres.public`
-  * Go to the [Use OpenMetadata goose Recipe](https://block.github.io/goose/recipes/detail?id=use-openmetadata)
-  * Scroll down to *Launch in Goose Desktop*, and paste your fqn into the new goose session!
+* Go to the [Use OpenMetadata goose Recipe](https://block.github.io/goose/recipes/detail?id=use-openmetadata)
+* Scroll down to *Launch in Goose Desktop*, and paste your fqn into the new goose session!
 
-Feel free to experience with OpenMetadata, OpenMetadata MCP, and goose!
+Feel free to experiment with OpenMetadata, OpenMetadata MCP, and goose!
 
 ## Wrapping up and feedback <a name="end"></a>
 To shutdown your OpenMetadata services, run the following command:
