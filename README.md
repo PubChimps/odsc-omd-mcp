@@ -43,7 +43,7 @@ docker compose -f docker-compose-postgres.yml up --detach
 | Welcome to OpenMetadata! |
 
 ### Adding postgreSQL to OpenMetadata
-Adding a connector in OpenMetadata is easy, we've already loaded some sample data into the postgreSQL database OpenMetadata is using to managed asset states, so we will use that, but you can just as easily connect to cloud data services like Snowflake, RedShift, BigQuery, and Databricks.
+Adding a connector in OpenMetadata is easy, we've already loaded some sample data into the postgreSQL database OpenMetadata is using to manage asset states, so we will use that, but you can just as easily connect to cloud data services like Snowflake, RedShift, BigQuery, and Databricks.
 
 * Go to [OpenMetadata](http://localhost:8585/)
 * Login
