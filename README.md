@@ -20,7 +20,7 @@ Before getting started, please make sure you have the following two services on 
 ### Installing OpenMetadata
 With the prerequisites installed, we will move on to installing OpenMetadata. OpenMetadata is an open-source metadata platform for data discovery, observability and governance! If you have any questions about OpenMetadata, please ask! We will be installing OpenMetadata along with its supporting components:
 
- * Airflow - Which orchestrates ingestion jobs that bring new metadata into OpenMetadata, keep it up to data as data systems change
+ * Airflow - Which orchestrates ingestion jobs that bring new metadata into OpenMetadata and keeps it up-to-date as data systems change
  * Elasticsearch - Search indexing to retrieve OpenMetadata assets
  * PostgreSQL - Stores and maintain state for OpenMetadata assets
 
