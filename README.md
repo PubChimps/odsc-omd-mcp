@@ -134,4 +134,7 @@ docker compose down
 Or, you can add additional metadata connectors to your OpenMetadata instance! Popular connectors include Snowflake, BigQuery, Databricks, and Tableau!
 
 ## Troubleshooting
+Elasticsearch issues?
+Run `docker ps` if `openmetadata_elasticsearch` is not running, you may not have enough memory allocated to Docker Desktop
+
 Can't build your own OpenMetadata? Create an account in our Sandbox, [generate a personal access token](https://docs.open-metadata.org/latest/how-to-guides/mcp#adding-a-personal-access-token-to-your-mcp-client), and connect to [goose](#setup) using https://sandbox.open-metadata.org/ instead of http://localhost:8585/
