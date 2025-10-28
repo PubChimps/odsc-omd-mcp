@@ -58,6 +58,7 @@ Adding a connector in OpenMetadata is easy, we've already loaded some sample dat
   * Database: openmetadata_db
   * Enable **Ingest All Databases**
   * Select **Next**
+  * No edits are needed in the filters page, scroll down and select **Save**
  
 | ![add-postgres.png](./images/add-postgres.png) |
 |:--:|
