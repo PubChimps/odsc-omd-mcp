@@ -27,8 +27,8 @@ With the prerequisites installed, we will move on to installing OpenMetadata. Op
 We'll bring all these services online with the following commands:
 
 ```
-curl -sL -o docker-compose-postgres.yml https://github.com/open-metadata/OpenMetadata/releases/download/1.10.2-release/docker-compose-postgres.yml
-wget https://github.com/open-metadata/OpenMetadata/releases/download/1.10.2-release/docker-compose-postgres.yml
+curl -sL -o docker-compose-postgres.yml https://github.com/open-metadata/OpenMetadata/releases/download/1.10.3-release/docker-compose-postgres.yml
+wget https://github.com/open-metadata/OpenMetadata/releases/download/1.10.3-release/docker-compose-postgres.yml
 curl -fsSL https://raw.githubusercontent.com/open-metadata/openmetadata-demo/main/postgres/docker/postgres-script.sql | docker exec -i openmetadata_postgresql psql -U postgres -d openmetadata_db
 ```
 
