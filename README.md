@@ -68,6 +68,14 @@ Adding a connector in OpenMetadata is easy, we've already loaded some sample dat
 | Adding a postgres connector to OpenMetadata |
 
 ## Adding the OpenMetadata MCP Server to goose <a name="setup"></a>
+An OpenMetadata Personal Access Token (PAT) will be needed to add OpenMetadata to goose. From [here](http://localhost:8585/users/admin/access-token), select **Generate New Token**
+
+| ![generate-token.png](./images/generate-token.png) |
+|:--:|
+| An OpenMetadata PAT is needed to use it in goose |
+
+Copy this token for to paste into goose later.
+
 With OpenMetadata up and running, we can add it's MCP server as a goose extension! Open goose, select Extensions, then **+Add custom extension**
 
 Please create your OpenMetadata Extension with the following options:
@@ -80,7 +88,7 @@ Please create your OpenMetadata Extension with the following options:
  * Variable name: `AUTH_HEADER`
  * Value:
    ```
-   Bearer eyJraWQiOiJHYjM4OWEtOWY3Ni1nZGpzLWE5MmotMDI0MmJrOTQzNTYiLCJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlzQm90IjpmYWxzZSwiaXNzIjoib3Blbi1tZXRhZGF0YS5vcmciLCJpYXQiOjE2NjM5Mzg0NjIsImVtYWlsIjoiYWRtaW5Ab3Blbm1ldGFkYXRhLm9yZyJ9.tS8um_5DKu7HgzGBzS1VTA5uUjKWOCU0B_j08WXBiEC0mr0zNREkqVfwFDD-d24HlNEbrqioLsBuFRiwIWKc1m_ZlVQbG7P36RUxhuv2vbSp80FKyNM-Tj93FDzq91jsyNmsQhyNv_fNr3TXfzzSPjHt8Go0FMMP66weoKMgW2PbXlhVKwEuXUHyakLLzewm9UMeQaEiRzhiTMU3UkLXcKbYEJJvfNFcLwSl9W8JCO_l0Yj3ud-qt_nQYEZwqW6u5nfdQllN133iikV4fM5QZsMCnm8Rq1mvLR0y9bmJiD7fwM1tmJ791TUWqmKaTnP49U493VanKpUAfzIiOiIbhg
+   Bearer <PASTE_YOUR_OpenMetadata_TOKEN_HERE>
    ```
  * Select **+Add**
 * Select **Save Changes**
@@ -141,3 +149,5 @@ Elasticsearch issues?
 Run `docker ps` if `openmetadata_elasticsearch` is not running, you may not have enough memory allocated to Docker Desktop
 
 Can't build your own OpenMetadata? Create an account in our Sandbox, [generate a personal access token](https://docs.open-metadata.org/latest/how-to-guides/mcp#adding-a-personal-access-token-to-your-mcp-client), and connect to [goose](#setup) using https://sandbox.open-metadata.org/ instead of http://localhost:8585/
+
+Model running into rate-limiting issue? Instruct the model to batch patch requests in order to reduce chances of rate-limiting.
