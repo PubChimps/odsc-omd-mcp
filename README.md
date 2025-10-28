@@ -14,8 +14,10 @@ Hello Open Data Science Conference! Thank you for joining our training session! 
 ## Prerequisites <a name="prerequisites"></a>
 Before getting started, please make sure you have the following three services on your laptop:
 1. [node](https://nodejs.org/en/download) - on a MacBook, you might have to run `xcode-select --install` before installing Node
-1. [Docker Desktop 4.49.0](https://www.docker.com/products/docker-desktop/) - there are open-source alternatives to Docker, like Podman, that are great, please do not use them for this workshop!
-2. [goose Desktop 1.12.0](https://block.github.io/goose/docs/quickstart/) - Desktop, not goose CLI
+2. [Docker Desktop 4.49.0](https://www.docker.com/products/docker-desktop/) - there are open-source alternatives to Docker, like Podman, that are great, please do not use them for this workshop!
+3. [goose Desktop 1.12.0](https://block.github.io/goose/docs/quickstart/) - Desktop, not goose CLI
+
+This workshop is *bring-you-own-agent*, and you will need API key for it, almost any AI Agent will do, [Anthropic's free-tier for Claude](https://www.claude.com/platform/api) will work great!
 
 ## OpenMetadata <a name="openmetadata"></a>
 ### Installing OpenMetadata
