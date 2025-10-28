@@ -12,7 +12,8 @@ Hello Open Data Science Conference! Thank you for joining our training session! 
 5. [Wrapping up and feedback](#end)
 
 ## Prerequisites <a name="prerequisites"></a>
-Before getting started, please make sure you have the following two services on your laptop:
+Before getting started, please make sure you have the following three services on your laptop:
+1. [node](https://nodejs.org/en/download) - on a MacBook, you might have to run `xcode-select --install` before installing Node
 1. [Docker Desktop 4.49.0](https://www.docker.com/products/docker-desktop/) - there are open-source alternatives to Docker, like Podman, that are great, please do not use them for this workshop!
 2. [goose Desktop 1.12.0](https://block.github.io/goose/docs/quickstart/) - Desktop, not goose CLI
 
