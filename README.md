@@ -178,7 +178,7 @@ How many tables are in postgres.postgres.public?
 then,
 
 ```
-How many tables are in postgres.postgres.public, postgres.airflow_db.public, and postgres.openmedata_db.public
+How many tables are in postgres.postgres.public, postgres.airflow_db.public, and postgres.openmetadata_db.public
 ```
 
 goose should return 7, 48, and 147, then we can bring JupyterLab in,
