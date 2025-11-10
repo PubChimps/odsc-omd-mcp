@@ -142,6 +142,11 @@ For this lab, we are going to create a virtual environment so that everyone can 
 ```
 python3 -m venv pycon
 source pycon/bin/activate
+```
+
+From the pycon virtual environment, run:
+
+```
 pip install jupyterlab==4.4.1 jupyter-collaboration==4.0.2 jupyter-mcp-tools==0.1.3 ipykernel uv
 pip uninstall -y pycrdt datalayer_pycrdt
 pip install datalayer_pycrdt==0.12.17
