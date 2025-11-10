@@ -7,9 +7,10 @@ Hello Open Data Science Conference! Thank you for joining our training session! 
 ## Contents
 1. [Prerequisites](#prerequisites)
 2. [OpenMetadata](#openmetadata)
-3. [Prompt party!](#party) 🎉
-4. [goose Recipes](#goose)
-5. [Wrapping up and feedback](#end)
+3. [goose](#goose) 
+4. [goose Recipes](#recipes)
+5. [Integrating Python](#python)
+6. [Wrapping up and feedback](#end)
 
 ## Prerequisites <a name="prerequisites"></a>
 Before getting started, please make sure you have the following three services on your laptop:
@@ -97,7 +98,7 @@ Please create your OpenMetadata Extension with the following options:
 |:--:|
 | OpenMetadata MCP Server in goose |
 
-## Prompt party! 🎉 <a name="party"></a>
+## goose 🎉 <a name="goose"></a>
 Now we'll recreate one of the usecases we just saw from the community!
 
 In our [sample data schema](http://localhost:8585/databaseSchema/postgres.postgres.public), you will see 7 tables. We will add some classifications to this schema and have an AI agent push those changes to every table.
@@ -124,7 +125,7 @@ In our [sample data schema](http://localhost:8585/databaseSchema/postgres.postgr
     ```
   * Back in OpenMetadata
     * [Tables](http://localhost:8585/table/postgres.postgres.public.actor) should now have the same Certification!   
-## goose Recipes <a name="goose"></a>
+## goose Recipes <a name="recipes"></a>
 We can make this even easier via goose Recipes. Recipes are files that contain all the details to allow goose to do one specific task.
 
 * In OpenMetadata
@@ -134,6 +135,59 @@ We can make this even easier via goose Recipes. Recipes are files that contain a
 * Scroll down to *Launch in Goose Desktop*, and paste your fqn into the new goose session!
 
 Feel free to experiment with OpenMetadata, OpenMetadata MCP, and goose!
+
+## Integrating Python via Jupyter MCP <a name="python"></a>
+For this lab, we are going to create a virtual environment so that everyone can work from the same Python.
+
+```
+python3 -m venv pycon
+source pycon/bin/activate
+pip install jupyterlab==4.4.1 jupyter-collaboration==4.0.2 jupyter-mcp-tools==0.1.3 ipykernel uv
+pip uninstall -y pycrdt datalayer_pycrdt
+pip install datalayer_pycrdt==0.12.17
+jupyter lab --port 8888 --IdentityProvider.token pycon --ip 0.0.0.0
+```
+This will start a JupyterLab instance at [http://localhost:8888/](http://localhost:8888/), if you are prompt for a password, enter `pycon`.
+
+### Adding JupyterLab to goose
+Just like OpenMetadata, we will add JupyterLab as an extension to goose with the following options:
+
+* Extension Name: `jupyter`
+* Type: `STDIO`
+* Description:
+* Command: `uvx jupyter-mcp-server@latest`
+* Timeout: `300`
+* Environment Variables
+  * Variable name: `JUPYTER_URL`
+   * Value: `"http://localhost:8888"`
+  * Variable name: `JUPYTER_TOKEN`
+    * Value: `pycon`
+  * Variable name: `ALLOW_IMG_OUTPUT`
+    * Value: `true`
+  * Make sure to Select **+Add** for each Environment Variable
+* Select **Save Changes**
+
+We can now use the JupyterLab and OpenMetadata MCP Servers together in goose!
+
+In goose, prompt
+
+```
+How many tables are in postgres.postgres.public?
+```
+
+then,
+
+```
+How many tables are in postgres.postgres.public, postgres.airflow_db.public, and postgres.openmedata_db.public
+```
+
+goose should return 7, 48, and 147, then we can bring JupyterLab in,
+
+```
+Create a new notebook pycon.ipynb and build a visualization with the table counts for each postgres database
+```
+
+
 
 ## Wrapping up and feedback <a name="end"></a>
 To shutdown your OpenMetadata services, run the following command:
