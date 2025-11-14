@@ -196,6 +196,27 @@ The [OpenMetadata Sandbox](https://sandbox.open-metadata.org/) is a OpenMetadata
    ```
 * Select **+Add**, then **Save Changes**
 
+| ![collate-extension.png](./images/collate-extension.png) |
+|:--:|
+| Adding the OpenMetadata Sandbox to goose |
+
+For a model to be able to easily differentiate between this OpenMetadata and the one on your laptop, we have named it Collate. Now you can try the following prompts:
+
+```
+How many assets are in collate?
+```
+
+or:
+
+```
+How many assets have gold certifications, silver certifications, and bronze certifications?
+```
+
+and to combine it with the Jupyter MCP server:
+```
+Create a new notebook collate.ipynb and build a visualization with the asset counts by type in one cell and the assets counts by certification in another.
+```
+
 ## Wrapping up and feedback <a name="end"></a>
 To shutdown your OpenMetadata services, run the following command:
 
