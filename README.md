@@ -152,7 +152,7 @@ Just like OpenMetadata, we will add JupyterLab as an extension to goose with the
   * Make sure to Select **+Add** for each Environment Variable
 * Select **Save Changes**
 
-| ![jupyter-extension.png](./images/juypter-extension.png) |
+| ![jupyter-extension.png](./images/jupyter-extension.png) |
 |:--:|
 | Extension details for Jupyter MCP Server |
 
