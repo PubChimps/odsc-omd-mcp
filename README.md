@@ -9,7 +9,7 @@ Hello Open Data Science Conference! Thank you for joining our training session! 
 2. [OpenMetadata](#openmetadata)
 3. [goose](#goose) 
 4. [Integrating Python](#python)
-5. [Scaling out with Collate)(#collate)
+5. [Scaling out with Collate](#collate)
 6. [Wrapping up and feedback](#end)
 
 ## Prerequisites <a name="prerequisites"></a>
