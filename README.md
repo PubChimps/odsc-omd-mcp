@@ -1,6 +1,6 @@
 # AI Driven Automation in Open-Source Metadata Platforms: Embedding an MCP Server
 
-Hello Open Data Science Conference! Thank you for joining our training session! You can find the contents below, please let me know if there's anything you need!
+Hello PyCon Ireland! Thank you for joining our training session! You can find the contents below, please let me know if there's anything you need!
 
 *Note - This training was prepared using a MacBook*
 
@@ -31,7 +31,7 @@ With the prerequisites installed, we will move on to installing OpenMetadata. Op
 We'll bring all these services online with the following commands:
 
 ```
-curl -sL -o docker-compose-postgres.yml https://github.com/open-metadata/OpenMetadata/releases/download/1.10.3-release/docker-compose-postgres.yml
+curl -sL -o docker-compose-postgres.yml https://github.com/open-metadata/OpenMetadata/releases/download/1.10.4-release/docker-compose-postgres.yml
 docker compose -f docker-compose-postgres.yml up --detach
 ```
 
@@ -75,7 +75,7 @@ An OpenMetadata Personal Access Token (PAT) will be needed to add OpenMetadata t
 |:--:|
 | An OpenMetadata PAT is needed to use it in goose |
 
-Copy this token for to paste into goose later.
+Copy this token to paste into goose later.
 
 With OpenMetadata up and running, we can add it's MCP server as a goose extension! Open goose, select Extensions, then **+Add custom extension**
 
@@ -110,7 +110,7 @@ In our [sample data schema](http://localhost:8585/databaseSchema/postgres.postgr
   * Select :white_check_mark: to apply this certification to the *schema*
 * In goose
   * Go to the [Use OpenMetadata goose Recipe](https://block.github.io/goose/recipes/detail?id=use-openmetadata)
-  * Scroll down to *Launch in Goose Desktop*, and paste your fqn into the new goose session!  
+  * Scroll down to *Launch in Goose Desktop*, and paste your fqn `postgres.postgres.public` into the new goose session!  
 * Back in OpenMetadata
    * [Tables](http://localhost:8585/table/postgres.postgres.public.actor) should now have the same Certification!      
 
@@ -140,7 +140,7 @@ Just like OpenMetadata, we will add JupyterLab as an extension to goose with the
 * Extension Name: `jupyter`
 * Type: `STDIO`
 * Description:
-* Command: `npx -y mcp-remote https://sandbox.open-metadata.org/mcp --auth-server-url=https://sandbox.open-metadata.org/mcp --client-id=openmetadata --verbose --clean --header Authorization:${AUTH_HEADER}`
+* Command: `uvx jupyter-mcp-server@latest`
 * Timeout: `300`
 * Environment Variables
   * Variable name: `JUPYTER_URL`
@@ -181,7 +181,7 @@ Create a new notebook pycon.ipynb and build a visualization with the table count
 | Combining MCP Servers from OpenMetadata and Jupyter! |
 
 ## Scaling out with Collate <a name="collate"></a>
-The [OpenMetadata Sandbox](https://sandbox.open-metadata.org/) is a OpenMetadata instance hosted and curated by Collate. We can use it for a better look at combining OpenMetadata and Jupyter MCP servers. Log into the sandbox, and generate a Personal Access Token for yourself, just like before, and add one more extension to goose.
+The [OpenMetadata Sandbox](https://sandbox.open-metadata.org/) is an OpenMetadata instance hosted and curated by Collate. We can use it for a better look at combining OpenMetadata and Jupyter MCP servers. Log into the sandbox, and generate a Personal Access Token for yourself, just like before, and add one more extension to goose.
 
 * Extension Name: `collate`
 * Type: `STDIO`
