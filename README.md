@@ -8,8 +8,8 @@ Hello Open Data Science Conference! Thank you for joining our training session! 
 1. [Prerequisites](#prerequisites)
 2. [OpenMetadata](#openmetadata)
 3. [goose](#goose) 
-4. [goose Recipes](#recipes)
-5. [Integrating Python](#python)
+4. [Integrating Python](#python)
+5. [Scaling out with Collate)(#collate)
 6. [Wrapping up and feedback](#end)
 
 ## Prerequisites <a name="prerequisites"></a>
@@ -109,30 +109,10 @@ In our [sample data schema](http://localhost:8585/databaseSchema/postgres.postgr
   * Select **Gold**
   * Select :white_check_mark: to apply this certification to the *schema*
 * In goose
-  * Select model
-  * Use the following prompt
-    ```
-    Take classifications from postgres.postgres.public and apply them to all the tables that are listed in postgres.postgres.public
-
-    Here's what to do step by step:
-
-    1. **Verify postgres.postgres.public exists in openmetadata**
-    2. **Ask user if they will be propagating the postgres.postgres.public owner/certification or a particular tag**
-    3. **Get details of postgres.postgres.public in openmetadata**
-      - the owner/certification/tag to be applied to other assets
-    4. **List tables of postgres.postgres.public**
-    5. **Patch all tables that are returned**
-    ```
-  * Back in OpenMetadata
-    * [Tables](http://localhost:8585/table/postgres.postgres.public.actor) should now have the same Certification!   
-## goose Recipes <a name="recipes"></a>
-We can make this even easier via goose Recipes. Recipes are files that contain all the details to allow goose to do one specific task.
-
-* In OpenMetadata
-  * Go back to the same [public databaseSchema](http://localhost:8585/databaseSchema/postgres.postgres.public)
-  * Change the tier and/or add *admin* as the asset owner, copy the fully qualified name (fqn) or this schema `postgres.postgres.public`
-* Go to the [Use OpenMetadata goose Recipe](https://block.github.io/goose/recipes/detail?id=use-openmetadata)
-* Scroll down to *Launch in Goose Desktop*, and paste your fqn into the new goose session!
+  * Go to the [Use OpenMetadata goose Recipe](https://block.github.io/goose/recipes/detail?id=use-openmetadata)
+  * Scroll down to *Launch in Goose Desktop*, and paste your fqn into the new goose session!  
+* Back in OpenMetadata
+   * [Tables](http://localhost:8585/table/postgres.postgres.public.actor) should now have the same Certification!      
 
 Feel free to experiment with OpenMetadata, OpenMetadata MCP, and goose!
 
@@ -160,7 +140,7 @@ Just like OpenMetadata, we will add JupyterLab as an extension to goose with the
 * Extension Name: `jupyter`
 * Type: `STDIO`
 * Description:
-* Command: `uvx jupyter-mcp-server@latest`
+* Command: `npx -y mcp-remote https://sandbox.open-metadata.org/mcp --auth-server-url=https://sandbox.open-metadata.org/mcp --client-id=openmetadata --verbose --clean --header Authorization:${AUTH_HEADER}`
 * Timeout: `300`
 * Environment Variables
   * Variable name: `JUPYTER_URL`
@@ -171,6 +151,10 @@ Just like OpenMetadata, we will add JupyterLab as an extension to goose with the
     * Value: `true`
   * Make sure to Select **+Add** for each Environment Variable
 * Select **Save Changes**
+
+| ![jupyter-extension.png](./images/juypter-extension.png) |
+|:--:|
+| Extension details for Jupyter MCP Server |
 
 We can now use the JupyterLab and OpenMetadata MCP Servers together in goose!
 
@@ -192,7 +176,25 @@ goose should return 7, 48, and 147, then we can bring JupyterLab in,
 Create a new notebook pycon.ipynb and build a visualization with the table counts for each postgres database
 ```
 
+| ![goose-notebook.png](./images/goose-notebook.png) |
+|:--:|
+| Combining MCP Servers from OpenMetadata and Jupyter! |
 
+## Scaling out with Collate <a name="collate"></a>
+The [OpenMetadata Sandbox](https://sandbox.open-metadata.org/) is a OpenMetadata instance hosted and curated by Collate. We can use it for a better look at combining OpenMetadata and Jupyter MCP servers. Log into the sandbox, and generate a Personal Access Token for yourself, just like before, and add one more extension to goose.
+
+* Extension Name: `collate`
+* Type: `STDIO`
+* Description:
+* Command: `uvx jupyter-mcp-server@latest`
+* Timeout: `300`
+* Environment Variables
+ * Variable name: `AUTH_HEADER`
+ * Value:
+   ```
+   Bearer <PASTE_YOUR_OpenMetadata_TOKEN_HERE>
+   ```
+* Select **+Add**, then **Save Changes**
 
 ## Wrapping up and feedback <a name="end"></a>
 To shutdown your OpenMetadata services, run the following command:
