@@ -170,7 +170,7 @@ then,
 How many tables are in postgres.postgres.public, postgres.airflow_db.public, and postgres.openmetadata_db.public
 ```
 
-goose should return 7, 48, and 147, then we can bring JupyterLab in,
+to combine these results with the Jupyter MCP server:
 
 ```
 Create a new notebook pycon.ipynb and build a visualization with the table counts for each postgres database
@@ -203,7 +203,7 @@ The [OpenMetadata Sandbox](https://sandbox.open-metadata.org/) is an OpenMetadat
 For a model to be able to easily differentiate between this OpenMetadata and the one on your laptop, we have named it Collate. Now you can try the following prompts:
 
 ```
-How many assets are in collate?
+what is the count of all assets in collate?
 ```
 
 or:
