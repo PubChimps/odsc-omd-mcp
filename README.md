@@ -186,7 +186,7 @@ The [OpenMetadata Sandbox](https://sandbox.open-metadata.org/) is an OpenMetadat
 * Extension Name: `collate`
 * Type: `STDIO`
 * Description:
-* Command: `npx -y mcp-remote https://sandbox.open-metadata.org/mcp --auth-server-url=https://sandbox.open-metadata.org/mcp --client-id=openmetadata --verbose --clean --header Authorization:${COLLATE_AUTH_HEADER}`
+* Command: `npx -y mcp-remote https://sandbox.open-metadata.org/mcp --auth-server-url=https://sandbox.open-metadata.org/mcp --client-id=collate --verbose --clean --header Authorization:${COLLATE_AUTH_HEADER}`
 * Timeout: `300`
 * Environment Variables
  * Variable name: `COLLATE_AUTH_HEADER`
